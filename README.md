@@ -1,1 +1,1 @@
-htpps://otcova.github.io/web-graphics-performance
+https://otcova.github.io/web-graphics-performance
