@@ -2,13 +2,31 @@ import * as THREE from './three.js';
 import { onAnimationFrame, polys } from "../testCode.js";
 
 
+{
+    const shape = new THREE.Shape();
+
+    shape.moveTo(0, 0);
+    shape.lineTo(1, 1);
+    shape.lineTo(0, 1);
+    shape.lineTo(0.5, 0.8);
+
+    const geometry = new THREE.ShapeGeometry(shape);
+
+    console.log(geometry.attributes)
+
+
+    geometry.dispose();
+}
+
+
 const scene = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(
     innerWidth / -2, innerWidth / 2,
     innerHeight / 2, innerHeight / -2,
     0.1, 1000);
 
-const renderer = new THREE.WebGLRenderer({antialias: true});
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setClearColor(0xffffff);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 

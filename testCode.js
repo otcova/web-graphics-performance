@@ -5,13 +5,13 @@ export function random(from, to) {
     return Math.random() * (to - from) + from;
 }
 
-for (let i = 0; i < 1000; ++i) {
+for (let i = 0; i < 3000; ++i) {
     const points = [];
 
     const x = random(-innerWidth / 2, innerWidth / 2);
     const y = random(-innerHeight / 2, innerHeight / 2);
 
-    for (let a = 0; a < Math.PI * 2; a += .2) {
+    for (let a = 0; a < Math.PI * 2; a += .1) {
         points.push([
             x + 30 * Math.cos(a),
             y + 30 * Math.sin(a),
@@ -45,7 +45,7 @@ let dtRegister = [];
 const frame = () => {
     const now = performance.now() / 1000;
 
-    if (dtRegister.length > 100) dtRegister.shift();
+    if (dtRegister.length > 50) dtRegister.shift();
     dtRegister.push(now - pastTime);
 
     const dtMedian = dtRegister.reduce((a, b) => a + b) / dtRegister.length;
